@@ -1,0 +1,25 @@
+{% extends "header.html" %} {% block content %}
+<div class="container" style="min-height: 650px">
+  <div class="row">
+    {% for i in myblogs %}
+      <div class="card my-3" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src={{i.pic.url}} style="max-height: 175px;"class="img-fluid rounded-start" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{i.title | truncatewords:5}}</h5>
+              <p class="card-text">
+                {{i.desc | truncatewords:20}}
+              </p>
+              <a href="">Edit</a>&nbsp;&nbsp;<a href="">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

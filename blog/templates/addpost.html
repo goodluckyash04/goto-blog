@@ -1,0 +1,42 @@
+{% extends 'header.html' %} {% block content %}
+
+<div class="container" style="min-height: 650px">
+  <div class="col-6">
+    <form action='{% url "addpost" %}' method = 'post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{msg}}
+      <div class="mb-3">
+        <label for="exampleInputtitle1" class="form-label">Title</label>
+        <input
+          type="title"
+          name = 'title'
+          class="form-control"
+          id="exampleInputtitle1"
+          aria-describedby="titleHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputdes" class="form-label">Description</label>
+        <textarea
+        rows="15"
+          name = 'desc'
+          class="form-control"
+          id="exampleInputPassword1"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputdes" class="form-label">Picture</label>
+        <input
+          type="file"
+          name = 'pic'
+          class="form-control"
+          id="exampleInputPassword1"
+          accept="image/*"
+        />
+      </div>
+     
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
